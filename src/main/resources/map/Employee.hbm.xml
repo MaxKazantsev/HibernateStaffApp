@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="edu.software_testing.model.Employee" table="EMPLOYEES" schema="C##ULTHWE">
+        <id name="id">
+            <column name="ID" sql-type="number(5)" precision="5"/>
+            <generator class="increment"/>
+        </id>
+        <property name="name">
+            <column name="NAME" sql-type="char(45)" length="45"/>
+        </property>
+        <property name="salary">
+            <column name="SALARY" sql-type="number(5)" precision="5"/>
+        </property>
+        <property name="hireDate">
+            <column name="HIRE_DATE" sql-type="date"/>
+        </property>
+        <many-to-one name="department" class="edu.software_testing.model.Department">
+            <column name="DEP_ID" not-null="true"/>
+        </many-to-one>
+
+    </class>
+</hibernate-mapping>
